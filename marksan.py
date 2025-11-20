@@ -3,12 +3,12 @@ import re
 with open("bookmarks.html", "r") as file:
 	content = file.read()
 
-BEGIN_BIOLERPLATE = "<html><head><title>Marksan</title></head><body><h1>H1</h1><h3>H3</h3><p>paragraph</p>untagged text"
+BEGIN_BIOLERPLATE = "<html><head><title>MarkSan</title></head><body><h1>MarkSan</h1><p>Bookmark Sanitizer</p>"
 END_BIOLERPLATE = "</body></html>"
 
 A_TAG_BEGIN = "<a href= "
 A_TAG_href = ""
-A_TAG_TARGET = "'_blank'"
+A_TAG_TARGET = "'_blank'>"
 A_TAG_text = ""
 A_TAG_END = "</a>"
 
@@ -25,6 +25,8 @@ for mat in res:
 	# print(a[1])
 	A_TAG_text = re.search(">(.+)</A>", mat)
 
-	# A_TAG_text = str(A_TAG_text)
+	A_TAG_text = A_TAG_text[1]
 	A_TAG_href = a[1]
-	print(f"A_TAG_text = {A_TAG_text[1]}")
+	# print(f"A_TAG_text = {A_TAG_text[1]}")
+	output_A_tag = f"{A_TAG_BEGIN}{A_TAG_href} target={A_TAG_TARGET}{A_TAG_text}{A_TAG_END}"
+	print(output_A_tag)
