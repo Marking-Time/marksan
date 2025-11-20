@@ -22,4 +22,9 @@ else:
 
 for mat in res:
 	a = re.search("<A HREF=(\"\S+\")", mat)
-	print(a[1])
+	# print(a[1])
+	A_TAG_text = re.search(">(.+)</A>", mat)
+
+	# A_TAG_text = str(A_TAG_text)
+	A_TAG_href = a[1]
+	print(f"A_TAG_text = {A_TAG_text[1]}")
