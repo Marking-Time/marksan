@@ -2,18 +2,16 @@ import re
 
 with open("bookmarks.html", "r") as file:
 	content = file.read()
-	# print(content)
 
-	# for line in content:
-	# 	line = content.readline()
-	# 	print(line.strip())
-	# 	print()
+BEGIN_BIOLERPLATE = "<html><head><title>Marksan</title></head><body><h1>H1</h1><h3>H3</h3><p>paragraph</p>untagged text"
+END_BIOLERPLATE = "</body></html>"
 
-# with open("bookmarks.html", "r") as file:
-# 	for line in file:
-# 		line = file.readline()
-# 		print(line)
-# 		print()
+A_TAG_BEGIN = "<a href= "
+A_TAG_href = ""
+A_TAG_TARGET = "'_blank'"
+A_TAG_text = ""
+A_TAG_END = "</a>"
+
 pat = "<A HREF=.+</A>"
 
 res = re.findall(pat,content)
@@ -24,4 +22,4 @@ else:
 
 for mat in res:
 	a = re.search("<A HREF=(\"\S+\")", mat)
-	print(a)
+	print(a[1])

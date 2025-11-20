@@ -2,6 +2,10 @@ Regular Expressions:
 	
 	find entire A tag = "<A HREF=.+</A>"gm
 	find URI portion frm inside A tag = "<A HREF=(\"\S+\")"gm
+	find text portion of A tag = ">(.+)</A>"gm
+	find portion of text in A tag after the - delimiter = ">.+-(.+)</A>$"gm
 
-	find entire H3 = "<H3.+</H3>"gm
-	find H3 text from inside H3 = >(.+)<
+	# find entire H3 = "<H3.+</H3>"gm
+	# find H3 text from inside H3 = >(.+)<
+
+	<A href = "https://somewhere.com">test</A>
