@@ -29,4 +29,8 @@ for mat in res:
 	A_TAG_href = a[1]
 	# print(f"A_TAG_text = {A_TAG_text[1]}")
 	output_A_tag = f"{A_TAG_BEGIN}{A_TAG_href} target={A_TAG_TARGET}{A_TAG_text}{A_TAG_END}"
-	print(output_A_tag)
+	# print(output_A_tag)
+
+	category = re.search("-(.+)$", A_TAG_text)
+	if category != None:
+		print(category[1])
