@@ -20,6 +20,8 @@ if res:
 else:
 	print("no")
 
+category_list = []
+
 for mat in res:
 	a = re.search("<A HREF=(\"\S+\")", mat)
 	# print(a[1])
@@ -33,4 +35,10 @@ for mat in res:
 
 	category = re.search("-(.+)$", A_TAG_text)
 	if category != None:
-		print(category[1])
+		category = category[1].strip()
+	# print(type(category))
+	if category not in category_list:
+		# print(category[1])
+		category_list.append(category)
+
+print(category_list)
