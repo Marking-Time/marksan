@@ -33,7 +33,7 @@ for mat in res:
 	output_A_tag = f"{A_TAG_BEGIN}{A_TAG_href} target={A_TAG_TARGET}{A_TAG_text}{A_TAG_END}"
 	# print(output_A_tag)
 
-	category = re.search("-(.+)$", A_TAG_text)
+	category = re.search("~(.+)$", A_TAG_text)
 	if category != None:
 		category = category[1].strip()
 	# print(type(category))
