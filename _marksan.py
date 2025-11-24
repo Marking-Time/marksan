@@ -20,7 +20,7 @@ res = re.findall(pat,content)
 # else:
 	# print("no")
 
-category_list = {}
+category_list = []
 
 for mat in res:
 	a = re.search("<A HREF=(\"\S+\")", mat)
@@ -37,12 +37,8 @@ for mat in res:
 	if category != None:
 		category = category[1].strip()
 	# print(type(category))
-
 	if category not in category_list:
 		# print(category[1])
-		category_list[category]=[]
-		category_list[category].append(output_A_tag)
-	else:
-		category_list[category].append(output_A_tag)
+		category_list.append(category)
 
 print(category_list)

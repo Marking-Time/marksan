@@ -15,13 +15,10 @@ A_TAG_END = "</a>"
 pat = "<A HREF=.+</A>"
 
 res = re.findall(pat,content)
-# if res:
-	# print("yes")
-# else:
-	# print("no")
 
-category_list = []
+category_list = {}
 
+# loop to create stuff in a tag
 for mat in res:
 	a = re.search("<A HREF=(\"\S+\")", mat)
 	# print(a[1])
@@ -37,8 +34,27 @@ for mat in res:
 	if category != None:
 		category = category[1].strip()
 	# print(type(category))
+
 	if category not in category_list:
 		# print(category[1])
-		category_list.append(category)
+		category_list[category]=[]
+		category_list[category].append(output_A_tag)
+	else:
+		category_list[category].append(output_A_tag)
 
-print(category_list)
+HTML_output = BEGIN_BIOLERPLATE
+
+for cat in category_list:
+	if cat != None:
+		HTML_output = HTML_output + f"<h3>{cat}</h3>"
+		for item in category_list[cat]:
+			if item != None:
+				HTML_output = HTML_output + "<br>" + item
+
+HTML_output = HTML_output + END_BIOLERPLATE
+
+with open("marksan.html", "w") as f:
+	f.write(HTML_output)
+
+# print(HTML_output)
+# print(category_list)
