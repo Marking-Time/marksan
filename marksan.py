@@ -4,7 +4,7 @@ with open("bookmarks.html", "r") as file:
 	content = file.read()
 
 # HTML strings to build file
-BEGIN_BIOLERPLATE = "<html><head><title>MarkSan</title></head><body><h1>MarkSan</h1><p>Bookmark Sanitizer</p>"
+BEGIN_BIOLERPLATE = "<html><head><title>MarkSan</title></head><body><h1>MarkSan</h1><p>Bookmark Sanitizer<br> FOSS created by Mark King under the  <a href='https://github.com/Marking-Time/marksan/blob/main/LICENSE' target='_blank'>MIT license</a></p>"
 END_BIOLERPLATE = "</body></html>"
 
 A_TAG_BEGIN = "<a href= "
