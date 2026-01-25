@@ -12,3 +12,7 @@ Regular Expressions:
 
 	<A href = "https://somewhere.com">test</A>
 	<a href= "https://regex101.com/" target='_blank'>regex101:  Regular Expressions - Test</a>
+
+	ALt find entire A tag = /<(a|A).+(\/a|A>)/gm
+		not implemented ... for use in new marksan
+
